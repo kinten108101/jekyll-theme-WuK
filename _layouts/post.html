@@ -7,6 +7,12 @@ layout: comments
     {{ page.jekyll-theme-WuK.post.date.prepend }}
     {{ page.date | date_to_string }}
     {% endif %}
+    {% if page.jekyll-theme-WuK.post.tags.enable %}
+    {% if page.tags.size > 0 %}
+    {{ page.jekyll-theme-WuK.post.tags.prepend }}
+    {{ page.tags | array_to_sentence_string }}
+    {% endif %}
+    {% endif %}
     {% if page.jekyll-theme-WuK.post.wordcount.enable %}
     {{ page.jekyll-theme-WuK.post.wordcount.prepend }}
     {{ page.content | strip_html | strip_newlines | remove: " " | size }}{{ page.jekyll-theme-WuK.post.wordcount.unit }}
@@ -22,12 +28,6 @@ layout: comments
         <i class="fas fa-spinner fa-pulse"></i>
       </span>{{ page.jekyll-theme-WuK.post.visitor.unit }}
     </span>
-    {% endif %}
-    {% if page.jekyll-theme-WuK.post.tags.enable %}
-    {% if page.tags.size > 0 %}
-    {{ page.jekyll-theme-WuK.post.tags.prepend }}
-    {{ page.tags | array_to_sentence_string }}
-    {% endif %}
     {% endif %}
     {{ page.jekyll-theme-WuK.post.copyright }}
     {% if page.jekyll-theme-WuK.background_music %}

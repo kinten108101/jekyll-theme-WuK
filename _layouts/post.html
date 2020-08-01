@@ -13,13 +13,12 @@ layout: comments
     {% if page.jekyll-theme-WuK.post.date.enable %}
     {{ page.jekyll-theme-WuK.post.date.prepend }}
     {{ page.date }}
-    <br>
     {% endif %}
     {% if page.jekyll-theme-WuK.post.tags.enable %}
     {% if page.tags.size > 0 %}
     {{ page.jekyll-theme-WuK.post.tags.prepend }}
     {% for tag in page.tags %}
-      <div class="tagblock">{{ tag[0] }}</div>
+      <span class="tagblock">{{ tag[0] }}</span>
     {% endfor %}
     {% endif %}
     {% endif %}

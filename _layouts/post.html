@@ -19,8 +19,8 @@ layout: comments
     {% if page.tags.size > 0 %}
     {{ page.jekyll-theme-WuK.post.tags.prepend }}
     {{ page.tags | array_to_sentence_string }}
-    {% for tagtitle in page.tags[0] %}
-      <div class="tagblock">{{ tagtitle }}<div>
+    {% for tag in page.tags %}
+      <div class="tagblock">{{ tag[0] }}<div>
     {% endfor %}
     {% endif %}
     {% endif %}

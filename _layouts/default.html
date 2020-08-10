@@ -30,7 +30,7 @@ layout: compress
                 var num = Math.ceil( Math.random() * list.length);
                 root.style.setProperty('--img-url',list[num-1]);
                 }
-              </script>
+  </script>
 </head>
 
 <body
@@ -100,6 +100,8 @@ layout: compress
   </div>
   <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
   {% endunless %}
+  <script type="text/javascript"> ChangeIt();
+  </script> 
   <div class="wrap" style="background-image: url({{ page.thumbnail }}),url(--img-url)">
     {% capture _content %}
     {{ content }}

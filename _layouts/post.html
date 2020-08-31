@@ -17,9 +17,6 @@ layout: comments
     {% endif %}
 	-->
   </div>
-  {% if page.title != "Something here"%}
-  <div class="post-title">{{page.title}}</div>
-  {% endif %}
   {% if page.jekyll-theme-WuK.post.tags.enable %}
     {% if page.tags.size > 0 %}
     {{ page.jekyll-theme-WuK.post.tags.prepend }}
@@ -28,7 +25,12 @@ layout: comments
     <span class="tagblock">{{ tag | upcase }}</span>
 	{% endif %}
     {% endfor %}
+	&nbsp;
     {% endif %}
   {% endif %}
+  {% if page.title != "Something here"%}
+  <div class="post-title">{{page.title}}</div>
+  {% endif %}
+  <br><br>
   {{ content }}
 </div>

@@ -58,33 +58,30 @@ layout: compress
 {% endif %}
 {% endfor %}
 {% assign counts = counts | split: ', ' | reverse %}
-{% if page.jekyll-theme-WuK.archive.pie_chart.enable %}
-```mermaid
-pie
-{{ page.jekyll-theme-WuK.archive.pie_chart.title }}
-{% assign i = 0 %}
-{% for post in site.posts %}
-{% assign year = post.date | date: page.jekyll-theme-WuK.archive.group_by %}
-{% assign nyear = post.next.date | date: page.jekyll-theme-WuK.archive.group_by %}
-{% if year != nyear %}
-"{{ year }}" : {{ counts[i] }}
-{% assign i = i | plus: 1 %}
-{% endif %}
-{% endfor %}
-```
-{% endif %}
 {% if page.jekyll-theme-WuK.archive.toc.enable %}
 - TOC
 {:toc}
 {% endif %}
 {% assign i = 0 %}
-{% for post in site.posts %}{% assign year = post.date | date: page.jekyll-theme-WuK.archive.group_by %}{% assign nyear = post.next.date | date: page.jekyll-theme-WuK.archive.group_by %}{% if year != nyear %}
+{% for post in site.posts %}
+{% assign year = post.date | date: page.jekyll-theme-WuK.archive.group_by %}
+{% assign nyear = post.next.date | date: page.jekyll-theme-WuK.archive.group_by %}
 
-## <span class="fa-layers fa-fw"><i class="fas fa-folder-open"></i>{% if page.jekyll-theme-WuK.archive.year_count %}<span class="fa-layers-counter">{{ counts[i] }}</span>{% endif %}</span> {{ year }}{% assign i = i | plus: 1 %}
+{% if year != nyear %}
+</ul></details>
+<details><summary>## <span class="fa-layers fa-fw"><i class="fas fa-folder-open"></i>
+{% if page.jekyll-theme-WuK.archive.year_count %}<span class="fa-layers-counter">{{ counts[i] }}</span>{% endif %}
+</span> {{ year }}
+{% assign i = i | plus: 1 %}
+{% endif %}</summary>
+<ul>
 
-{% endif %}
-- *{{ post.date | date_to_string }}* [{{ post.title }}]({{ post.url | relative_url }}){% endfor %}
+<li>*{{ post.date | date_to_string }}* [{{ post.title }}]({{ post.url | relative_url }})</li>
+{% endfor %}
 {% endcapture %}
+
+
+
   class="{{ page.jekyll-theme-WuK.default.body.theme-base }}{% if page.jekyll-theme-WuK.default.body.layout-reverse %} layout-reverse{% endif %}{% if page.jekyll-theme-WuK.default.body.sidebar-overlay %} sidebar-overlay{% endif %}">
   {% assign sidebar_disable = false %}
   {% if page.jekyll-theme-WuK.default.sidebar.disable %}
@@ -107,6 +104,7 @@ pie
       </div>
     </div>
     {% endif %}
+	{{ archive_content | markdownify }}
     <iframe width="100%" height="400" scrolling="yes" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/236094777&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
     <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-141968126" title="subkoi" target="_blank" style="color: #cccccc; text-decoration: none;">subkoi</a> · <a href="https://soundcloud.com/user-141968126/sets/flcl-soundtrack" title="FLCL Soundtrack" target="_blank" style="color: #cccccc; text-decoration: none;">FLCL Soundtrack</a></div>
     <nav class="sidebar-nav">
@@ -117,7 +115,7 @@ pie
       {% endfor %}
     </nav>
     <div class="sidebar-item">
-	{{ archive_content | markdownify }}
+	
       {% if page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.enable %}
       {{ page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.append }}
       {% endif %}

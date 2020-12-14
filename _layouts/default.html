@@ -95,8 +95,10 @@ layout: compress
   {% unless sidebar_disable %}
   <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
+	 <!--{% if page.jekyll-theme-WuK.sidebar_open %}-->
+	 <!--{% endif %}--> 
   <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"
-    <!--{% if page.jekyll-theme-WuK.sidebar_open %}-->checked<!--{% endif %}--> />
+    checked />
   <!-- Toggleable sidebar -->
   <div class="sidebar" id="sidebar">
     {% if page.jekyll-theme-WuK.default.sidebar.avatar.enable %}

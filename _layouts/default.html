@@ -73,6 +73,7 @@ layout: compress
       {% endfor %}
     </nav>
     <div class="sidebar-item">
+	{{ archive_content | markdownify }}
       {% if page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.enable %}
       {{ page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.append }}
       {% endif %}

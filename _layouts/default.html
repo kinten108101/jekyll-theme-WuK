@@ -69,7 +69,7 @@ layout: compress
 
 {% if year != nyear %}
 </ul></details>
-<details>
+<details open="open">
 <summary><span class="fa-layers fa-fw"><i class="fas fa-folder-open"></i>
 {% if page.jekyll-theme-WuK.archive.year_count %}<span class="fa-layers-counter">{{ counts[i] }}</span>{% endif %}
 </span> {{ year }}
@@ -80,8 +80,9 @@ layout: compress
 
 
 
-<li><em>{{ post.date | date_to_string }}</em> [{{ post.title }}]({{ post.url | relative_url }})</li>
+<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
 {% endfor %}
+</ul></details>
 {% endcapture %}
 
 

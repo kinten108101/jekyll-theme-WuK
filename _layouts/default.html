@@ -42,6 +42,7 @@ layout: compress
 
 <body
 {% capture archive_content %}
+<div class="archive">
 {% if page.jekyll-theme-WuK.archive.posts_count.enable %}
 {{ site.posts.size }}{{ page.jekyll-theme-WuK.archive.posts_count.append }}
 {% endif %}
@@ -83,6 +84,7 @@ layout: compress
 <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul></details>
+</div>
 {% endcapture %}
 
 
@@ -112,7 +114,7 @@ layout: compress
     </div>
     {% endif %}
 	{{ archive_content}}
-    <iframe width="100%" height="400" scrolling="yes" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/236094777&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    <iframe id="sidebar-soundcloud" width="100%" height="400" scrolling="yes" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/236094777&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
     <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-141968126" title="subkoi" target="_blank" style="color: #cccccc; text-decoration: none;">subkoi</a> · <a href="https://soundcloud.com/user-141968126/sets/flcl-soundtrack" title="FLCL Soundtrack" target="_blank" style="color: #cccccc; text-decoration: none;">FLCL Soundtrack</a></div>
     <nav class="sidebar-nav">
       {% for node in page.jekyll-theme-WuK.default.sidebar.nav %}

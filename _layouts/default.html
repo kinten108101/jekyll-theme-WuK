@@ -114,23 +114,27 @@ layout: compress
     </div>
     {% endif %}
 	{{ archive_content}}
-    <iframe id="sidebar-soundcloud" width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1148255359&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/kinten108101" title="kinten108101" target="_blank" style="color: #cccccc; text-decoration: none;">kinten108101</a> · <a href="https://soundcloud.com/kinten108101/sets/into-the-kvant-7" title="Into the Kvant-7" target="_blank" style="color: #cccccc; text-decoration: none;">Into the Kvant-7</a></div>
-    <nav class="sidebar-nav">
-      {% for node in page.jekyll-theme-WuK.default.sidebar.nav %}
-      <a class="sidebar-nav-item{% if page.url == node.href %} active{% endif %}" href="{{ node.href }}">
-        {{ node.title }}
-      </a>
-      {% endfor %}
-    </nav>
-    <div class="sidebar-item">
-	
-      {% if page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.enable %}
+	<div class="sidebar-item">
+	{% if page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.enable %}
       {{ page.jekyll-theme-WuK.default.sidebar.simple_jekyll_search.append }}
       {% endif %}
       {% if page.jekyll-theme-WuK.default.sidebar.jekyll-toc.enable %}
       {{ page.jekyll-theme-WuK.default.sidebar.jekyll-toc.prepend }}
       {% include toc.html html=content ordered=true skipNoIDs=true sanitize=true id="toc" %}
       {% endif %}
+	</div>
+    <iframe id="sidebar-soundcloud" width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1148255359&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/kinten108101" title="kinten108101" target="_blank" style="color: #cccccc; text-decoration: none;">kinten108101</a> · <a href="https://soundcloud.com/kinten108101/sets/into-the-kvant-7" title="Into the Kvant-7" target="_blank" style="color: #cccccc; text-decoration: none;">Into the Kvant-7</a></div>
+    <!--<nav class="sidebar-nav">
+      {% for node in page.jekyll-theme-WuK.default.sidebar.nav %}
+      <a class="sidebar-nav-item{% if page.url == node.href %} active{% endif %}" href="{{ node.href }}">
+        {{ node.title }}
+      </a>
+      {% endfor %}
+    </nav>
+	-->
+    <div class="sidebar-item">
+	
+      
       {% for node in page.jekyll-theme-WuK.default.sidebar.append_to_sidebar %}
       {{ node }}
       {% endfor %}

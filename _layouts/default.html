@@ -183,10 +183,10 @@ layout: compress
     {% endif %}
     {% endif %}
     {{ _content }}
+    {% unless sidebar_disable %}
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    {% endunless %}
   </div>
-  {% unless sidebar_disable %}
-  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-  {% endunless %}
   {{ page.jekyll-theme-WuK.default.append }}
 </body>
 

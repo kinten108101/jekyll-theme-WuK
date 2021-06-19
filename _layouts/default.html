@@ -160,10 +160,12 @@ layout: compress
       </div>
       {% endif %}
     </div>
-    {% unless sidebar_disable %}
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-    {% endunless %}
+    
   </div>
+  {% unless sidebar_disable %}
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  {% endunless %}
+  
   <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
   {% endunless %}
   
@@ -186,6 +188,7 @@ layout: compress
     {% endif %}
     {% endif %}
     {{ _content }}
+    
   </div>
   
   {{ page.jekyll-theme-WuK.default.append }}

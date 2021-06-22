@@ -4,11 +4,8 @@ layout: comments
 
 <div class="post">
   <div class="post-date">
-	{% if page.jekyll-theme-WuK.post.author.enable%}  
-	{{ page.jekyll-theme-WuK.post.author.prepend }}&nbsp;<a href="/about">{{page.author }}</a>
-	{% endif %}
     {% if page.jekyll-theme-WuK.post.date.enable %}
-    {{ page.jekyll-theme-WuK.post.date.prepend }}&nbsp;{{ page.date | date: "%B %-d %Y"}}
+    {{ page.date | date: "%B %-d %Y"}}
     {% endif %}
 	<!--
     {% if page.jekyll-theme-WuK.background_music %}
@@ -73,7 +70,7 @@ layout: comments
 {% if year != nyear %}
 </ul></details>
 <details open="open">
-<summary><span class="fa-layers fa-fw"></span>{{ year }} 
+<summary>{{ year }} 
 {% if page.jekyll-theme-WuK.archive.year_count %}&#40;{{ counts[i] }}&#41;{% endif %}
 {% assign i = i | plus: 1 %}
 </summary>

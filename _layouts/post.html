@@ -39,10 +39,11 @@ layout: comments
   {{ content }}
 </div>
 <div class="sidebar-kinten">
-  <p>Howdy, my name is Le Nguyen Gia Bao, also known by the alias kinten. I'm a software enginner/ essayist/ anime fan. </p>
+  <h3>About me</h3>
+  {{ site.description }}
   <hr>
-  <p>Contact me</p>
-  <hr>
+
+  <h3>Archive</h3>
   {% capture archive_content %}
 <div class="archive">
 {% if page.jekyll-theme-WuK.archive.posts_count.enable %}
@@ -73,16 +74,12 @@ layout: comments
 {% if year != nyear %}
 </ul></details>
 <details open="open">
-<summary><span class="fa-layers fa-fw"><i class="fas fa-folder-open"></i>
-{% if page.jekyll-theme-WuK.archive.year_count %}<span class="fa-layers-counter">{{ counts[i] }}</span>{% endif %}
-</span> {{ year }}
+<summary><span class="fa-layers fa-fw"></span>{{ year }} 
+{% if page.jekyll-theme-WuK.archive.year_count %}&#40;{{ counts[i] }}&#41;{% endif %}
 {% assign i = i | plus: 1 %}
 </summary>
 <ul>
 {% endif %}
-
-
-
 <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul></details>

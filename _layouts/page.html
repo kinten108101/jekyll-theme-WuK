@@ -25,7 +25,11 @@ layout: default
   </h3>
 </div>
 {% endif %}
+{% if page.title and page.title == "Home" %}
 <div class="container">
+{% else %}
+<div class="container home">
+{% endif %}
   {{ content }}
 </div>
 {% for node in page.jekyll-theme-WuK.page.apppend %}

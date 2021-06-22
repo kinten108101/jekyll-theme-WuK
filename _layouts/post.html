@@ -43,5 +43,50 @@ layout: comments
   <hr>
   <p>Contact me</p>
   <hr>
+  {% capture archive_content %}
+<div class="archive">
+{% if page.jekyll-theme-WuK.archive.posts_count.enable %}
+{{ site.posts.size }}{{ page.jekyll-theme-WuK.archive.posts_count.append }}
+{% endif %}
+
+{% assign count = 1 %}
+{% for post in site.posts reversed %}
+{% assign year = post.date | date: page.jekyll-theme-WuK.archive.group_by %}
+{% assign nyear = post.next.date | date: page.jekyll-theme-WuK.archive.group_by %}
+{% if year != nyear %}
+{% assign counts = counts | append: count | append: ', ' %}
+{% assign count = 1 %}
+{% else %}
+{% assign count = count | plus: 1 %}
+{% endif %}
+{% endfor %}
+{% assign counts = counts | split: ', ' | reverse %}
+{% if page.jekyll-theme-WuK.archive.toc.enable %}
+- TOC
+{:toc}
+{% endif %}
+{% assign i = 0 %}
+{% for post in site.posts %}
+{% assign year = post.date | date: page.jekyll-theme-WuK.archive.group_by %}
+{% assign nyear = post.next.date | date: page.jekyll-theme-WuK.archive.group_by %}
+
+{% if year != nyear %}
+</ul></details>
+<details open="open">
+<summary><span class="fa-layers fa-fw"><i class="fas fa-folder-open"></i>
+{% if page.jekyll-theme-WuK.archive.year_count %}<span class="fa-layers-counter">{{ counts[i] }}</span>{% endif %}
+</span> {{ year }}
+{% assign i = i | plus: 1 %}
+</summary>
+<ul>
+{% endif %}
+
+
+
+<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul></details>
+</div>
+{% endcapture %}
   {{ archive_content}}
 </div>
